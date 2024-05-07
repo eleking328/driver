@@ -7,7 +7,7 @@ import (
 	"strings"
 	"time"
 
-	"git.cddpi.com/iot/iot-edge-driver/common/utils"
+	"github.com/eleking328/driver-sdk/common/utils"
 )
 
 var (

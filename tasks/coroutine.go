@@ -4,7 +4,7 @@ import (
 	"sync"
 	"time"
 
-	"git.cddpi.com/iot/iot-edge-driver/common/log"
+	"github.com/eleking328/driver-sdk/common/log"
 
 	"github.com/rs/xid"
 )

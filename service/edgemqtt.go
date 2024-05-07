@@ -9,10 +9,10 @@ import (
 	"strings"
 	"sync/atomic"
 
-	"git.cddpi.com/iot/iot-edge-driver/common/log"
-	"git.cddpi.com/iot/iot-edge-driver/common/mq"
-	"git.cddpi.com/iot/iot-edge-driver/config"
-	"git.cddpi.com/iot/iot-edge-driver/datasource"
+	"github.com/eleking328/driver-sdk/common/log"
+	"github.com/eleking328/driver-sdk/common/mq"
+	"github.com/eleking328/driver-sdk/config"
+	"github.com/eleking328/driver-sdk/datasource"
 
 	"time"
 

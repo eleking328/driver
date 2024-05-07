@@ -7,10 +7,10 @@ import (
 	"syscall"
 	"time"
 
-	"git.cddpi.com/iot/iot-edge-driver/api"
-	"git.cddpi.com/iot/iot-edge-driver/common/log"
-	"git.cddpi.com/iot/iot-edge-driver/config"
-	"git.cddpi.com/iot/iot-edge-driver/service"
+	"github.com/eleking328/driver-sdk/api"
+	"github.com/eleking328/driver-sdk/common/log"
+	"github.com/eleking328/driver-sdk/config"
+	"github.com/eleking328/driver-sdk/service"
 )
 
 func StartDriver(d api.Driver) {

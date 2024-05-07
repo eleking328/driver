@@ -1,9 +1,9 @@
 package tasks
 
 import (
-	"git.cddpi.com/iot/iot-edge-driver/api"
-	"git.cddpi.com/iot/iot-edge-driver/common/log"
-	"git.cddpi.com/iot/iot-edge-driver/datasource"
+	"github.com/eleking328/driver-sdk/api"
+	"github.com/eleking328/driver-sdk/common/log"
+	"github.com/eleking328/driver-sdk/datasource"
 )
 
 const (

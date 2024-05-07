@@ -1,7 +1,7 @@
 package service
 
 import (
-	"git.cddpi.com/iot/iot-edge-driver/datasource"
+	"github.com/eleking328/driver-sdk/datasource"
 )
 
 type DSManager struct {

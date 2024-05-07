@@ -1,10 +1,10 @@
 package service
 
 import (
-	"git.cddpi.com/iot/iot-edge-driver/api"
-	"git.cddpi.com/iot/iot-edge-driver/common/log"
-	"git.cddpi.com/iot/iot-edge-driver/datasource"
-	"git.cddpi.com/iot/iot-edge-driver/tasks"
+	"github.com/eleking328/driver-sdk/api"
+	"github.com/eleking328/driver-sdk/common/log"
+	"github.com/eleking328/driver-sdk/datasource"
+	"github.com/eleking328/driver-sdk/tasks"
 )
 
 type TasksService struct {

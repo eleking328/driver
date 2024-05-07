@@ -1,8 +1,9 @@
 package tasks
 
 import (
-	"git.cddpi.com/iot/iot-edge-driver/common/log"
 	"time"
+
+	"github.com/eleking328/driver-sdk/common/log"
 )
 
 type Pool struct {

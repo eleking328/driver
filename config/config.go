@@ -7,8 +7,8 @@ import (
 	"os"
 	"time"
 
-	"git.cddpi.com/iot/iot-edge-driver/api"
-	"git.cddpi.com/iot/iot-edge-driver/common/mq"
+	"github.com/eleking328/driver-sdk/api"
+	"github.com/eleking328/driver-sdk/common/mq"
 )
 
 func init() {
