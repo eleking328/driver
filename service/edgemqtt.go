@@ -100,16 +100,49 @@ func (p *EdgeMQTTService) notifyEdgeFunc(item *datasource.DataSourceNotify) {
 // 设备设备变更 edge/device/{action}
 // 设备通道变更 edge/channel/{action}
 func (p *EdgeMQTTService) subscribe() {
-	var items = make([]mq.Subscribe, 0)
-	//
-	item := mq.Subscribe{
+
+	datasourceSub := mq.Subscribe{
 		Topic:    fmt.Sprintf("edge/datasource/+/%s/%s", p.manageCode, p.driverId), //2022/3/14 modify
 		Qos:      0,
 		Callback: p.datasourceChange,
 	}
-	items = append(items, item)
 
-	p.m.Subscribe(items...)
+	cmdSub := mq.Subscribe{
+		Topic:    "edge/cmd/+/+", //edge/cmd/}/{datasourceId}
+		Qos:      0,
+		Callback: p.doCMD,
+	}
+
+	p.m.Subscribe(datasourceSub, cmdSub)
+}
+
+// parseCmmondTopic parse cmd topic
+func parseCmmondTopic(topic string) (datasourceId int64, err error) {
+	items := strings.Split(topic, "/")
+	if len(items) < 4 {
+		err = errors.New("错误的topic")
+		return
+	}
+	datasourceId, err = strconv.ParseInt(items[3], 10, 64)
+	return
+}
+
+func (p *EdgeMQTTService) doCMD(c mqtt.Client, m mqtt.Message) {
+	log.Debugf("接收到来自topic[%s]的命令：%s", m.Topic(), string(m.Payload()))
+	datasourceId, err := parseCmmondTopic(m.Topic())
+	if err != nil {
+		log.Errorf("命令反序列化失败：%v", err)
+		return
+	}
+	// var cmdData = make(map[int64]interface{})
+	// err = json.Unmarshal(m.Payload(), &cmdData)
+	// if err != nil {
+	// 	log.Errorf("命令反序列化失败：%v", err)
+	// 	return
+	// }
+
+	Tasks.driver.Write(datasourceId, m.Payload())
+
 }
 
 func (p *EdgeMQTTService) Stop() {
